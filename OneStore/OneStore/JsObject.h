@@ -7,17 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JavaScriptCore/JavaScriptCore.h>  
+#import <JavaScriptCore/JavaScriptCore.h>
+#import <UIKit/UIKit.h>
 
-//首先创建一个实现了JSExport协议的协议
 @protocol JsObjectProtocol <JSExport>
-
-//此处我们测试几种参数的情况
 -(void)SelectPicture:(NSInteger)uploadID;
 //-(void)SelectPicture:(NSString *)uploadID;
+@end
 
+@protocol JsObjectDelegate <NSObject>
+- (void)selectPictureFromJS:(NSInteger)uploadID;
 @end
 
 @interface JsObject : NSObject<JsObjectProtocol>
+@property (nonatomic, assign) id<JsObjectDelegate> delegate;
 
 @end
