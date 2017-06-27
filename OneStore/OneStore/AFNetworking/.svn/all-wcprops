@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/ms2/!svn/ver/16873/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking
+END
+AFHTTPSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPSessionManager.m
+END
+AFURLResponseSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLResponseSerialization.m
+END
+AFNetworking.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFNetworking.h
+END
+AFSecurityPolicy.h
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFSecurityPolicy.h
+END
+AFSecurityPolicy.m
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFSecurityPolicy.m
+END
+AFURLSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLSessionManager.h
+END
+AFURLConnectionOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLConnectionOperation.h
+END
+AFHTTPRequestOperationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPRequestOperationManager.h
+END
+AFNetworkReachabilityManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFNetworkReachabilityManager.h
+END
+AFURLSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLSessionManager.m
+END
+AFURLConnectionOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLConnectionOperation.m
+END
+AFHTTPRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPRequestOperation.h
+END
+AFHTTPRequestOperationManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPRequestOperationManager.m
+END
+AFURLRequestSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLRequestSerialization.h
+END
+AFNetworkReachabilityManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFNetworkReachabilityManager.m
+END
+AFURLRequestSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLRequestSerialization.m
+END
+AFHTTPSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPSessionManager.h
+END
+AFHTTPRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFHTTPRequestOperation.m
+END
+AFURLResponseSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/ms2/!svn/ver/16321/branches/ios/xbb/xbb/Resource/Vendor/AFNetworking/AFURLResponseSerialization.h
+END
