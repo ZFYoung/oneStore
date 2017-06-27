@@ -15,6 +15,8 @@
 		761194661EFFE0E900C8C076 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 761194641EFFE0E900C8C076 /* LaunchScreen.storyboard */; };
 		761194711EFFE0E900C8C076 /* OneStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 761194701EFFE0E900C8C076 /* OneStoreTests.m */; };
 		7611947C1EFFE0E900C8C076 /* OneStoreUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7611947B1EFFE0E900C8C076 /* OneStoreUITests.m */; };
+		761194901F029BB400C8C076 /* JsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 7611948F1F029BB400C8C076 /* JsObject.m */; };
+		761194931F029E5200C8C076 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 761194921F029E5200C8C076 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +54,10 @@
 		7611947B1EFFE0E900C8C076 /* OneStoreUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneStoreUITests.m; sourceTree = "<group>"; };
 		7611947D1EFFE0E900C8C076 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		761194891EFFE15C00C8C076 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7611948E1F029BB400C8C076 /* JsObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsObject.h; sourceTree = "<group>"; };
+		7611948F1F029BB400C8C076 /* JsObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsObject.m; sourceTree = "<group>"; };
+		761194911F029E5200C8C076 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		761194921F029E5200C8C076 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,10 @@
 				7611945A1EFFE0E900C8C076 /* AppDelegate.m */,
 				7611945C1EFFE0E900C8C076 /* ViewController.h */,
 				7611945D1EFFE0E900C8C076 /* ViewController.m */,
+				761194911F029E5200C8C076 /* MainViewController.h */,
+				761194921F029E5200C8C076 /* MainViewController.m */,
+				7611948E1F029BB400C8C076 /* JsObject.h */,
+				7611948F1F029BB400C8C076 /* JsObject.m */,
 				7611945F1EFFE0E900C8C076 /* Main.storyboard */,
 				761194621EFFE0E900C8C076 /* Assets.xcassets */,
 				761194641EFFE0E900C8C076 /* LaunchScreen.storyboard */,
@@ -293,7 +303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7611945E1EFFE0E900C8C076 /* ViewController.m in Sources */,
+				761194901F029BB400C8C076 /* JsObject.m in Sources */,
 				7611945B1EFFE0E900C8C076 /* AppDelegate.m in Sources */,
+				761194931F029E5200C8C076 /* MainViewController.m in Sources */,
 				761194581EFFE0E900C8C076 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
