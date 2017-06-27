@@ -10,9 +10,16 @@
 #import "JsObject.h"
 #import "AFNetworking.h"
 #import <Photos/Photos.h>
+#import "Macro.h"
+
+
+#define IMAGE_CACHE_DIR [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+#define IMAGE_NAME @"avatar.png"
+
 
 @interface MainViewController ()<UIWebViewDelegate,JsObjectDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic, assign) NSInteger uploadID;
 @end
 
 @implementation MainViewController
@@ -24,8 +31,6 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(uploadImage:) name:@"SELECT_PICTURE_NOTIFICATION" object:nil];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,16 +52,22 @@
     context[@"jsObject"]=testJO;
 }
 
-- (void)uploadImage:(NSNotification *)uploadNoti {
+- (void)uploadImage:(NSInteger )uploadID {
+    if (uploadID <= 0)
+        return;
+    
     
     NSString *url = @"http://www.xfx8888.com/zh_CN/Personal/Portrait";
     
-    NSString *furl = [NSString stringWithFormat:@"%@/%@/%@",NSHomeDirectory(),@"Documents",@"He.jpg"];
+    NSString *filePath = (NSString *)IMAGE_CACHE_DIR;
+    filePath = [filePath stringByAppendingPathComponent:IMAGE_NAME];
+
     
     NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileURL:[NSURL fileURLWithPath:furl] name:@"file" fileName:@"filename.jpg" mimeType:@"image/jpeg" error:nil];
+        [formData appendPartWithFileURL:[NSURL fileURLWithPath:filePath] name:@"file" fileName:IMAGE_NAME mimeType:@"image/png" error:nil];
     } error:nil];
-    [request setValue:[NSString stringWithFormat:@"%@",[uploadNoti object]] forHTTPHeaderField:@"uid"];
+    [request setValue:StrFromInteger(uploadID) forHTTPHeaderField:@"uid"];
+    
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
     NSURLSessionUploadTask *uploadTask;
@@ -75,6 +86,12 @@
                           NSLog(@"Error: %@", error);
                       } else {
                           NSLog(@"%@ %@", response, responseObject);
+                          
+                          if ([[responseObject valueForKey:@"status"] integerValue] == 1) {
+                              NSString *filename = [responseObject valueForKey:@"file"];
+                              
+                              [self refreshAvatar:filename];
+                          }
                       }
                   }];
     
@@ -82,9 +99,72 @@
 
 }
 
+
+- (BOOL)getImageFormPickView:(UIImage * _Nullable) result info:(NSDictionary * _Nullable )info {
+    
+    if (!result) {
+        return NO;
+    }
+    
+    NSString *filePath = (NSString *)IMAGE_CACHE_DIR;
+    filePath = [filePath stringByAppendingPathComponent:IMAGE_NAME];
+    
+    @try
+    {
+        
+        NSData *imageData = nil;
+        NSString *ext = [filePath pathExtension];
+        
+        if ([ext isEqualToString:@"png"])
+        {
+            imageData = UIImagePNGRepresentation(result);
+        }
+        else
+        {
+            // the rest, we write to jpeg
+            // 0. best, 1. lost. about compress.
+            imageData = UIImageJPEGRepresentation(result,0);
+        }
+        
+        if ((imageData == nil) || ([imageData length] <= 0))
+            return NO;
+        
+        
+        [imageData writeToFile:filePath atomically:YES];
+        
+        return YES;
+    }
+    
+    @catch (NSException *e)
+    {
+        NSLog(@"create thumbnail exception.");
+    }
+    
+    return NO;
+}
+
+
+- (void)executeJSFunction:(NSString *)func_parmas {
+    
+    JSContext *context = [self.webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    NSString *funcJS = func_parmas;
+    [context evaluateScript:funcJS];
+}
+
+- (void)refreshAvatar:(NSString *)avatarName {
+    
+    NSString *func = [NSString stringWithFormat:@"changeportrait('%@')",avatarName];
+    
+    [self executeJSFunction:func];
+}
+
+
+
+
 #pragma mark - JsObjectDelegate
 - (void)selectPictureFromJS:(NSInteger)uploadID
 {
+    _uploadID = uploadID;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self openCamera];
@@ -135,7 +215,14 @@
         NSLog(@"%f", progress);
     };
     
+    __weak typeof(self) weakSelf = self;
     [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:CGSizeMake(200, 200) contentMode:PHImageContentModeAspectFill options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+        
+        if ([weakSelf getImageFormPickView:result info:info])
+            [self uploadImage:_uploadID];
+        
+        
+        [picker dismissViewControllerAnimated:YES completion:nil];
         
     }];
     

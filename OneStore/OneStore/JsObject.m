@@ -13,15 +13,16 @@
 
 -(void)SelectPicture:(NSInteger)uploadID
 {
+    NSLog(@"this is ios SelectPicture %ld",(long)uploadID);
+
+    if (uploadID <= 0)
+        return;
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         if ([self.delegate respondsToSelector:@selector(selectPictureFromJS:)]) {
             [self.delegate selectPictureFromJS:uploadID];
         }
     });
-    NSLog(@"this is ios SelectPicture %ld",(long)uploadID);
-    
-    if (uploadID > 0)
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"SELECT_PICTURE_NOTIFICATION" object:@(uploadID)];
     
 }
 

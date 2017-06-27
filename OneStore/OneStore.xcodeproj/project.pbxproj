@@ -56,6 +56,7 @@
 		04BB1A2A1F02AB910032ABA2 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		04BB1A2B1F02AB910032ABA2 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		04BB1A2C1F02AB910032ABA2 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		04BB1A331F02BE960032ABA2 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		761194531EFFE0E900C8C076 /* OneStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OneStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		761194571EFFE0E900C8C076 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		761194591EFFE0E900C8C076 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -156,6 +157,7 @@
 				761194921F029E5200C8C076 /* MainViewController.m */,
 				7611948E1F029BB400C8C076 /* JsObject.h */,
 				7611948F1F029BB400C8C076 /* JsObject.m */,
+				04BB1A331F02BE960032ABA2 /* Macro.h */,
 				7611945F1EFFE0E900C8C076 /* Main.storyboard */,
 				761194621EFFE0E900C8C076 /* Assets.xcassets */,
 				761194641EFFE0E900C8C076 /* LaunchScreen.storyboard */,
