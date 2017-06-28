@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <WebKit/WebKit.h>
+#import "JsObject.h"
 
 @interface ViewController ()<WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, strong) WKWebView *webView;
@@ -64,6 +65,7 @@
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message
 {
+    
     if ([message.name isEqualToString:@"iosModel"]) {
         // 打印所传过来的参数，只支持NSNumber, NSString, NSDate, NSArray,
         // NSDictionary, and NSNull类型
@@ -138,10 +140,12 @@ didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withErr
 
 // 导航完成时，会回调（也就是页面载入完成了）
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    NSLog(@"66===%s", __FUNCTION__);
-    // 禁用选中效果
-    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none'" completionHandler:nil];
-    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none'" completionHandler:nil];
+    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    JsObject *testJO=[JsObject new];
+    context[@"jsObject"]=testJO;
+//    // 禁用选中效果
+//    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitUserSelect='none'" completionHandler:nil];
+//    [self.webView evaluateJavaScript:@"document.documentElement.style.webkitTouchCallout='none'" completionHandler:nil];
 }
 // 导航失败时会回调
 - (void)webView:(WKWebView *)webView didFailNavigation:
